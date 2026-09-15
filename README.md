@@ -39,8 +39,8 @@ as an educational and experimental desktop application for Indic-script OCR.
 ## Build
 
 ```bash
-git clone https://github.com/utsab345/-Devanagari-Character-Recognizer-using-C-.git
-cd -Devanagari-Character-Recognizer-using-C-
+git clone https://github.com/utsab345/devanagari-character-recognizer-cpp.git
+cd devanagari-character-recognizer-cpp
 cmake -S . -B build
 cmake --build build --config Release
 ```
