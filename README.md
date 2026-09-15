@@ -2,6 +2,13 @@
 
 A desktop Devanagari character recognizer written in modern C++ with OpenCV. Draw a character in an interactive canvas and the application runs a TensorFlow model through OpenCV DNN to predict its class and confidence.
 
+## About
+
+This project demonstrates an end-to-end computer vision workflow for
+Devanagari handwriting: interactive image capture, region extraction,
+preprocessing, TensorFlow model inference, and visual feedback. It is intended
+as an educational and experimental desktop application for Indic-script OCR.
+
 ## Features
 
 - Interactive OpenCV drawing canvas
