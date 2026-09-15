@@ -67,6 +67,14 @@ The default model is `models/devanagari_detection.pb`. To use another model:
 
 The latest prediction is also printed to the terminal. A debug snapshot is written to `debug_canvas.png`.
 
+## Screenshots
+
+Examples of the drawing canvas, detected bounding box, and recognition output:
+
+![Recognizer example 1](https://github.com/user-attachments/assets/81faaa77-213a-4b4b-9c35-6528329558ac)
+
+![Recognizer example 2](https://github.com/user-attachments/assets/26e66e94-e651-4492-b362-1b187dc0ab32)
+
 ## How inference works
 
 1. The stroke is enclosed in a padded bounding box.
