@@ -1,26 +1,19 @@
-cmake_minimum_required(VERSION 3.30)  # Use your current version
-project(opencvtest VERSION 0.1.0 LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.16)
 
-# Find OpenCV
-find_package(OpenCV REQUIRED)
-if(NOT OpenCV_FOUND)
-    message(FATAL_ERROR "OpenCV not found. Please set OpenCV_DIR to the correct path.")
-endif()
+project(devanagari_character_recognizer VERSION 1.0.0 LANGUAGES CXX)
 
-# Include OpenCV headers
-include_directories(${OpenCV_INCLUDE_DIRS})
+find_package(OpenCV 4 REQUIRED COMPONENTS core highgui imgproc dnn)
 
-# Add executable
-add_executable(opencvtest main.cpp)
+add_executable(devanagari_recognizer src/main.cpp)
+target_compile_features(devanagari_recognizer PRIVATE cxx_std_17)
+target_compile_options(devanagari_recognizer PRIVATE
+    $<$<CXX_COMPILER_ID:GNU,Clang>:-Wall;-Wextra;-Wpedantic>
+    $<$<CXX_COMPILER_ID:MSVC>:/W4>
+)
+target_link_libraries(devanagari_recognizer PRIVATE ${OpenCV_LIBS})
 
-# Link OpenCV libraries
-target_link_libraries(opencvtest ${OpenCV_LIBS})
+include(GNUInstallDirs)
+install(TARGETS devanagari_recognizer RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
-# Enable testing
 include(CTest)
 enable_testing()
-
-# CPack configuration
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
